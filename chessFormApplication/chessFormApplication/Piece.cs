@@ -36,13 +36,16 @@ namespace chessFormApplication
         public List<Array> MovesList(Board board)
         {
             List<Array> returnList = new List<Array>();
+            List<Array> templist = new List<Array>();
 
-            foreach (Array a in TakeList(board))
+            templist = TakeList(board);
+            foreach (Array a in templist)
             {
                 returnList.Add(a);
             }
 
-            foreach (Array a in EmptySpaceMovesList(board))
+            templist = EmptySpaceMovesList(board);
+            foreach (Array a in templist)
             {
                 returnList.Add(a);
             }
@@ -58,6 +61,24 @@ namespace chessFormApplication
             }
 
             if (this.Occupation(board, checkPoint) != this.Color && this.Occupation(board, checkPoint) != chessFormApplication.Color.Empty)
+            {
+                Point[] locationPoints = new Point[2];
+                locationPoints[0] = this.Location;
+                locationPoints[1] = checkPoint;
+                return locationPoints;
+            }
+
+            return null;
+        }
+
+        public Point[] CheckMoveEmptyPoint(Board board, Point checkPoint)
+        {
+            if (checkPoint.X < 0 || checkPoint.X > 7 || checkPoint.Y < 0 || checkPoint.Y > 7)
+            {
+                return null;
+            }
+
+            if (this.Occupation(board, checkPoint) == chessFormApplication.Color.Empty)
             {
                 Point[] locationPoints = new Point[2];
                 locationPoints[0] = this.Location;
