@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace chessFormApplication
 {
-    public interface IAI : IPlayer
+    class Game
     {
-        Board getMove(Board board);
+        public Board Board { get; set; }
+        IPlayer playerWhite;
+        IPlayer playerBlack;
     }
 }

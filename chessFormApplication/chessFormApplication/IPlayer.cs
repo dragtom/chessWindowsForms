@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace chessFormApplication
 {
-    public interface IAI : IPlayer
+    public interface IPlayer
     {
-        Board getMove(Board board);
     }
 }
