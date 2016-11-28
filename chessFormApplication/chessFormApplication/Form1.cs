@@ -21,5 +21,18 @@ namespace chessFormApplication
         {
 
         }
+
+        private void pnl_board_Paint(object sender, PaintEventArgs e)
+        {
+            Brush darkSquare = Brushes.Brown;
+            //e.Graphics.FillRectangle()
+            for (int i = 0; i < 400; i += 100)
+            {
+                for (int j = 0; j < 400; j += 100)
+                {
+                    e.Graphics.FillRectangle(darkSquare, i, j, 50, 50);
+                }
+            }
+        }
     }
 }
