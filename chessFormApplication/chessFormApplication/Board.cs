@@ -8,6 +8,9 @@ namespace chessFormApplication
 {
     public class Board
     {
+        public _color toMove { get; set; }
+
+
         public Board()
         {
             
