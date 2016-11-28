@@ -53,14 +53,14 @@ namespace chessFormApplication
             return returnList;
         }
 
-        public Point[] CheckTakePoint(Board board, Point checkPoint)
+        public Point[] CheckMoveEmptyPoint(Board board, Point checkPoint)
         {
             if (checkPoint.X < 0 || checkPoint.X > 7 || checkPoint.Y < 0 || checkPoint.Y > 7)
             {
                 return null;
             }
 
-            if (this.Occupation(board, checkPoint) != this.Color && this.Occupation(board, checkPoint) != chessFormApplication.Color.Empty)
+            if (this.Occupation(board, checkPoint) == chessFormApplication.Color.Empty)
             {
                 Point[] locationPoints = new Point[2];
                 locationPoints[0] = this.Location;
@@ -71,14 +71,14 @@ namespace chessFormApplication
             return null;
         }
 
-        public Point[] CheckMoveEmptyPoint(Board board, Point checkPoint)
+        public Point[] CheckTakePoint(Board board, Point checkPoint)
         {
             if (checkPoint.X < 0 || checkPoint.X > 7 || checkPoint.Y < 0 || checkPoint.Y > 7)
             {
                 return null;
             }
 
-            if (this.Occupation(board, checkPoint) == chessFormApplication.Color.Empty)
+            if (this.Occupation(board, checkPoint) != this.Color && this.Occupation(board, checkPoint) != chessFormApplication.Color.Empty)
             {
                 Point[] locationPoints = new Point[2];
                 locationPoints[0] = this.Location;
