@@ -19,6 +19,7 @@ namespace chessFormApplication
         {
             InitializeComponent();
             Game = new Game();
+            Game.Board.setupStartPosition();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -28,8 +29,14 @@ namespace chessFormApplication
 
         private void pnl_board_Paint(object sender, PaintEventArgs e)
         {
+            //Piece samplePiece = Game.Board.Field[6][1];
+            //Color sampleColor = samplePiece.Color;
+            //MessageBox.Show(Convert.ToString(sampleColor));
+            //MessageBox.Show(Convert.ToString(Game.Board.Field[3][0].Color));
             Brush darkSquare = Brushes.Brown;
             Brush lightSquare = Brushes.White;
+            Font drawFont = new Font("Arial", 16);
+            SolidBrush textBrush = new SolidBrush(System.Drawing.Color.Black);
             int width = pnl_board.Width / 8;
             int height = pnl_board.Height / 8;
             for (int i = width - 1; i < pnl_board.Width - 1; i += 2 * width)
@@ -44,35 +51,52 @@ namespace chessFormApplication
                 }
             }
 
+
             for (int i = 0; i < 8; i++)
             {
                 for (int j = 0; j < 8; j++)
                 {
-                    //switch (Game.Board.Field[i][j].GetType())
-                    if (Game.Board.Field[i][j].GetType() == typeof(Pawn))
+                    if (Game.Board.Field[i][j] != null)
                     {
+                        Color pieceColor = Game.Board.Field[i][j].Color;
+                        //switch (Game.Board.Field[i][j].GetType())
+                        if (Game.Board.Field[i][j].GetType() == typeof(Pawn))
+                        {
+                            switch (pieceColor)
+                            {
+                                case Color.White:
+                                    e.Graphics.DrawString("♙", drawFont, textBrush, j * width, 8*height - (height + i * height));
+                                    break;
 
-                    } else if (Game.Board.Field[i][j].GetType() == typeof(Rook))
-                    {
+                            }
+                        }
+                        else if (Game.Board.Field[i][j].GetType() == typeof(Rook))
+                        {
 
-                    } else if (Game.Board.Field[i][j].GetType() == typeof(Knight))
-                    {
+                        }
+                        else if (Game.Board.Field[i][j].GetType() == typeof(Knight))
+                        {
 
-                    } else if (Game.Board.Field[i][j].GetType() == typeof(Bishop))
-                    {
+                        }
+                        else if (Game.Board.Field[i][j].GetType() == typeof(Bishop))
+                        {
 
-                    } else if (Game.Board.Field[i][j].GetType() == typeof(Queen))
-                    {
+                        }
+                        else if (Game.Board.Field[i][j].GetType() == typeof(Queen))
+                        {
 
-                    } else if (Game.Board.Field[i][j].GetType() == typeof(King))
-                    {
+                        }
+                        else if (Game.Board.Field[i][j].GetType() == typeof(King))
+                        {
 
+                        }
                     }
                 }
             }
-            //e.Graphics.DrawRectangle(Pens.Black, 1, 1, 399, 399);
-
         }
 
+        //e.Graphics.DrawRectangle(Pens.Black, 1, 1, 399, 399);
+
     }
+
 }

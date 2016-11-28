@@ -11,5 +11,10 @@ namespace chessFormApplication
         public Board Board { get; set; }
         IPlayer playerWhite;
         IPlayer playerBlack;
+
+        public Game()
+        {
+            Board = new Board();
+        }
     }
 }
