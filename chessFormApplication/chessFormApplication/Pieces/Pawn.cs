@@ -17,14 +17,11 @@ namespace chessFormApplication.Pieces
         public override List<Array> EmptySpaceMovesList(Board board)
         {
             List<Array> possibleMovesList = new List<Array>();
-            Point[] locationPoints = new Point[2];
 
-            Point checkPoint = new Point(Location.X, Location.Y + 1);
-            if (this.Occupation(board, checkPoint) == chessFormApplication.Color.Empty)
+            Point[] points = CheckMoveEmptyPoint(board, new Point(Location.X, Location.Y + 1));
+            if (points != null)
             {
-                locationPoints[0] = this.Location;
-                locationPoints[1] = checkPoint;
-                possibleMovesList.Add(locationPoints);
+                possibleMovesList.Add(points);
             }
 
             return possibleMovesList;
