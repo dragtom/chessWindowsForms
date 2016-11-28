@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace chessFormApplication
 {
-    interface IPiece
+    public enum _color
+    {
+        white,
+        black
+    }
+    public abstract class Piece
     {
     }
 }
