@@ -38,7 +38,7 @@ namespace chessFormApplication
             List<Array> returnList = new List<Array>();
             List<Array> templist = new List<Array>();
 
-            templist = TakeList(board);
+            templist = TakeMovesList(board);
             foreach (Array a in templist)
             {
                 returnList.Add(a);
@@ -89,7 +89,7 @@ namespace chessFormApplication
             return null;
         }
 
-        public virtual List<Array> TakeList(Board board)
+        public virtual List<Array> TakeMovesList(Board board)
         {
             throw new NotImplementedException();
         }
