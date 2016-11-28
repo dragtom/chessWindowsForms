@@ -8,5 +8,11 @@ namespace chessFormApplication
 {
     public abstract class Piece
     {
+        public Color Color { get; private set; }
+
+        public Piece(Color color)
+        {
+            this.Color = color;
+        }
     }
 }

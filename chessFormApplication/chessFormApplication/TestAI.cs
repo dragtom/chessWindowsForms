@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace chessFormApplication
 {
-    public interface IAI
+    public class TestAI : IAI
     {
-        Board getMove(Board board);
+        public Board getMove(Board board)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace chessFormApplication
+namespace chessFormApplication.Pieces
 {
-    public interface IAI
+    public class Pawn : Piece
     {
-        Board getMove(Board board);
+        public Pawn(Color color) : base(color)
+        {
+        }
     }
 }
