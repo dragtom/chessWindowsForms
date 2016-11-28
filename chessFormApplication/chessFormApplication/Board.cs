@@ -9,11 +9,15 @@ namespace chessFormApplication
     public class Board
     {
         public _color toMove { get; set; }
-
+        public Piece[][] field;
 
         public Board()
         {
-            
+            field = new Piece[8][];
+            for (int i = 0; i<8; i++)
+            {
+                field[i] = new Piece[8];
+            }
         }
     }
 }
