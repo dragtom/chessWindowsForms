@@ -52,6 +52,21 @@ namespace chessFormApplication
                     if (Game.Board.Field[i][j].GetType() == typeof(Pawn))
                     {
 
+                    } else if (Game.Board.Field[i][j].GetType() == typeof(Rook))
+                    {
+
+                    } else if (Game.Board.Field[i][j].GetType() == typeof(Knight))
+                    {
+
+                    } else if (Game.Board.Field[i][j].GetType() == typeof(Bishop))
+                    {
+
+                    } else if (Game.Board.Field[i][j].GetType() == typeof(Queen))
+                    {
+
+                    } else if (Game.Board.Field[i][j].GetType() == typeof(King))
+                    {
+
                     }
                 }
             }
