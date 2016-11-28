@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace chessFormApplication
 {
-    public abstract class Piece
+    public enum Color
     {
+        White,
+        Black
     }
 }
