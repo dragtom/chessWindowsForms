@@ -18,6 +18,7 @@ namespace chessFormApplication
             {
                 Field[i] = new Piece[8];
             }
+            toMove = Color.White;
         }
     }
 }
