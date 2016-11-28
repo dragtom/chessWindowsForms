@@ -8,6 +8,7 @@ namespace chessFormApplication
 {
     public class Board
     {
+
         public Board()
         {
             
