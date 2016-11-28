@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace chessFormApplication.Pieces
 {
-    class Queen : Piece
+    public class Queen : Piece
     {
-        public Queen(Color color) : base(color)
+        public Queen(Color color, Point startLocation) : base(color, startLocation)
         {
         }
     }

@@ -20,7 +20,7 @@ namespace chessFormApplication.Pieces
             Point[] locationPoints = new Point[2];
 
             Point checkPoint = new Point(Location.X, Location.Y + 1);
-            if (this.Occupation(board, checkPoint) == chessFormApplication.Occupation.Empty)
+            if (this.Occupation(board, checkPoint) == chessFormApplication.Color.Empty)
             {
                 locationPoints[0] = this.Location;
                 locationPoints[1] = checkPoint;
@@ -29,5 +29,18 @@ namespace chessFormApplication.Pieces
 
             return possibleMovesList;
         }
-    }
+
+        public override List<Array> TakeList(Board board)
+        {
+            List<Array> possibleMovesList = new List<Array>();
+
+            Point[] points = CheckTakePoint(board, new Point(Location.X, Location.Y + 1));
+            if (points != null)
+            {
+                possibleMovesList.Add(points);
+            }
+            
+            return possibleMovesList;
+        }
+}
 }

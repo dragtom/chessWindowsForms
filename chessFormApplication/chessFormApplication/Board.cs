@@ -22,7 +22,7 @@ namespace chessFormApplication
             ToMove = Color.White;
         }
         public void setupStartPosition()
-        {
+        {/*
             for (int i = 0; i < 8; i++)
             {
                 Field[1][i] = new Pawn(Color.White);
@@ -45,10 +45,11 @@ namespace chessFormApplication
             Field[7][5] = new Bishop(Color.Black);
             Field[7][6] = new Knight(Color.Black);
             Field[7][7] = new Rook(Color.Black);
+            */
         }
 
         public void setupExamplePosition()
-        {
+        {/*
             for (int i = 3; i < 6; i++)
             {
                 Field[1][i] = new Pawn(Color.White);
@@ -56,6 +57,7 @@ namespace chessFormApplication
             }
             Field[0][4] = new Knight(Color.White);
             Field[7][4] = new Knight(Color.Black);
+            */
         }
     }
 }

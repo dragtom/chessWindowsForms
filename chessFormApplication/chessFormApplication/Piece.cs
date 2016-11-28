@@ -20,16 +20,16 @@ namespace chessFormApplication
             this.Location = startLocation;
         }
 
-        public Occupation Occupation(Board board, Point checkPoint)
+        public Color Occupation(Board board, Point checkPoint)
         {
             switch (board.Field[checkPoint.X][checkPoint.Y].Color)
             {
                 case Color.White:
-                    return chessFormApplication.Occupation.White;
+                    return chessFormApplication.Color.White;
                 case Color.Black:
-                    return chessFormApplication.Occupation.Black;
+                    return chessFormApplication.Color.Black;
                 default:
-                    return chessFormApplication.Occupation.Empty;
+                    return chessFormApplication.Color.Empty;
             }
         }
 
@@ -48,6 +48,24 @@ namespace chessFormApplication
             }
 
             return returnList;
+        }
+
+        public Point[] CheckTakePoint(Board board, Point checkPoint)
+        {
+            if (checkPoint.X < 0 || checkPoint.X > 7 || checkPoint.Y < 0 || checkPoint.Y > 7)
+            {
+                return null;
+            }
+
+            if (this.Occupation(board, checkPoint) != this.Color && this.Occupation(board, checkPoint) != chessFormApplication.Color.Empty)
+            {
+                Point[] locationPoints = new Point[2];
+                locationPoints[0] = this.Location;
+                locationPoints[1] = checkPoint;
+                return locationPoints;
+            }
+
+            return null;
         }
 
         public virtual List<Array> TakeList(Board board)

@@ -9,6 +9,7 @@ namespace chessFormApplication
     public enum Color
     {
         White,
-        Black
+        Black,
+        Empty
     }
 }

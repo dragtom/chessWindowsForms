@@ -13,10 +13,5 @@ namespace chessFormApplication.Pieces
         {
 
         }
-
-        public override List<Array> MovesList(Board board)
-        {
-            return base.MovesList(board);
-        }
     }
 }

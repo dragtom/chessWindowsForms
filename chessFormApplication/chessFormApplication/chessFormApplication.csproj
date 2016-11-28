@@ -55,7 +55,6 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="IAI.cs" />
-    <Compile Include="Occupation.cs" />
     <Compile Include="Piece.cs" />
     <Compile Include="Pieces\Bishop.cs" />
     <Compile Include="Pieces\King.cs" />
