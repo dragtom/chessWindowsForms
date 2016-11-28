@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using chessFormApplication.Pieces;
 
 namespace chessFormApplication
 {
@@ -19,6 +20,10 @@ namespace chessFormApplication
                 Field[i] = new Piece[8];
             }
             ToMove = Color.White;
+        }
+        public void setupStartPosition()
+        {
+
         }
     }
 }
