@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace chessFormApplication
 {
-    class Game
+    public class Game
     {
         public Board Board { get; set; }
         IPlayer playerWhite;
