@@ -8,7 +8,7 @@ namespace chessFormApplication
 {
     public class Board
     {
-        public _color toMove { get; set; }
+        public Color toMove { get; set; }
         public Piece[][] field;
 
         public Board()
@@ -18,6 +18,7 @@ namespace chessFormApplication
             {
                 field[i] = new Piece[8];
             }
+            toMove = Color.White;
         }
     }
 }
