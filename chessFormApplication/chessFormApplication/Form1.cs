@@ -13,6 +13,26 @@ namespace chessFormApplication
 {
     public partial class Form1 : Form
     {
+        public void DrawStukje(PaintEventArgs e, Color c, string black, string white, int i, int j)
+        {
+            Brush darkSquare = Brushes.Sienna;
+            Brush lightSquare = Brushes.White;
+            Font drawFont = new Font("Arial", 16);
+            SolidBrush textBrush = new SolidBrush(System.Drawing.Color.Black);
+            int width = pnl_board.Width / 8;
+            int height = pnl_board.Height / 8;
+            switch (c)
+            {
+                case Color.White:
+                    e.Graphics.DrawString(white, drawFont, textBrush, width / 8 + j * width, 8 * height - (7 * height / 8 + i * height));
+                    break;
+                case Color.Black:
+                    e.Graphics.DrawString(black, drawFont, textBrush, width / 8 + j * width, 8 * height - (7 * height / 8 + i * height));
+                    break;
+
+            }
+        }
+
         public Game Game { get; set; }
 
         public Form1()
@@ -39,9 +59,9 @@ namespace chessFormApplication
             SolidBrush textBrush = new SolidBrush(System.Drawing.Color.Black);
             int width = pnl_board.Width / 8;
             int height = pnl_board.Height / 8;
-            for (int i = width - 1; i < pnl_board.Width - 1; i += 2 * width)
+            for (int i = width - 1; i <= pnl_board.Width - width; i += 2 * width)
             {
-                for (int j = 0; j < pnl_board.Height - 1; j += 2 * height)
+                for (int j = 0; j <= pnl_board.Height - height; j += 2 * height)
                 {
                     //MessageBox.Show(i + "," + j);
                     e.Graphics.FillRectangle(darkSquare, i, j, width, height);
@@ -62,29 +82,11 @@ namespace chessFormApplication
                         //switch (Game.Board.Field[i][j].GetType())
                         if (Game.Board.Field[i][j].GetType() == typeof(Pawn))
                         {
-                            switch (pieceColor)
-                            {
-                                case Color.White:
-                                    e.Graphics.DrawString("♙", drawFont, textBrush, width/8 + j * width, 8*height - (7*height/8 + i * height));
-                                    break;
-                                case Color.Black:
-                                    e.Graphics.DrawString("♟", drawFont, textBrush, width/8 + j * width, 8 * height - (7*height/8 + i * height));
-                                    break;
-
-                            }
+                            DrawStukje(e, pieceColor, "♟", "♙", i, j);
                         }
                         else if (Game.Board.Field[i][j].GetType() == typeof(Rook))
                         {
-                            switch (pieceColor)
-                            {
-                                case Color.White:
-                                    e.Graphics.DrawString("♖", drawFont, textBrush, width / 8 + j * width, 8 * height - (7 * height / 8 + i * height));
-                                    break;
-                                case Color.Black:
-                                    e.Graphics.DrawString("♜", drawFont, textBrush, width / 8 + j * width, 8 * height - (7 * height / 8 + i * height));
-                                    break;
-
-                            }
+                            DrawStukje(e, pieceColor, "♖", "♜", i, j);
                         }
                         else if (Game.Board.Field[i][j].GetType() == typeof(Knight))
                         {

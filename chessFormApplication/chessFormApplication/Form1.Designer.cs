@@ -35,7 +35,7 @@
             // 
             this.pnl_board.Location = new System.Drawing.Point(12, 12);
             this.pnl_board.Name = "pnl_board";
-            this.pnl_board.Size = new System.Drawing.Size(401, 401);
+            this.pnl_board.Size = new System.Drawing.Size(400, 400);
             this.pnl_board.TabIndex = 0;
             this.pnl_board.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_board_Paint);
             // 
