@@ -13,13 +13,13 @@ namespace chessFormApplication.Pieces
         {
             Point[] tempArrayPoints = new Point[8];
             tempArrayPoints[0] = new Point(Location.X-1, Location.Y-2);
-            tempArrayPoints[0] = new Point(Location.X+1, Location.Y-2);
-            tempArrayPoints[0] = new Point(Location.X-2, Location.Y+1);
-            tempArrayPoints[0] = new Point(Location.X+2, Location.Y+1);
-            tempArrayPoints[0] = new Point(Location.X-2, Location.Y-1);
-            tempArrayPoints[0] = new Point(Location.X+2, Location.Y-1);
-            tempArrayPoints[0] = new Point(Location.X-1, Location.Y+2);
-            tempArrayPoints[0] = new Point(Location.X+1, Location.Y+2);
+            tempArrayPoints[1] = new Point(Location.X+1, Location.Y-2);
+            tempArrayPoints[2] = new Point(Location.X-2, Location.Y+1);
+            tempArrayPoints[3] = new Point(Location.X+2, Location.Y+1);
+            tempArrayPoints[4] = new Point(Location.X-2, Location.Y-1);
+            tempArrayPoints[5] = new Point(Location.X+2, Location.Y-1);
+            tempArrayPoints[6] = new Point(Location.X-1, Location.Y+2);
+            tempArrayPoints[7] = new Point(Location.X+1, Location.Y+2);
             return  tempArrayPoints;
         }
 

@@ -22,7 +22,12 @@ namespace chessFormApplication
 
         public Color Occupation(Board board, Point checkPoint)
         {
-            switch (board.Field[checkPoint.X][checkPoint.Y].Color)
+            if (board.Field[checkPoint.Y][checkPoint.X] == null)
+            {
+                return chessFormApplication.Color.Empty;
+            }
+
+            switch (board.Field[checkPoint.Y][checkPoint.X].Color)
             {
                 case Color.White:
                     return chessFormApplication.Color.White;

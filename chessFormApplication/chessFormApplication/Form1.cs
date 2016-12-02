@@ -13,6 +13,16 @@ namespace chessFormApplication
 {
     public partial class Form1 : Form
     {
+        public Game Game { get; set; }
+        private Piece selectedPiece { get; set; }
+
+        public Form1()
+        {
+            InitializeComponent();
+            Game = new Game();
+            Game.Board.setupStartPosition();
+        }
+
         public void DrawPiece(PaintEventArgs e, Color c, string white, string black, int i, int j)
         {
             Font drawFont = new Font("Arial", 16);
@@ -32,11 +42,11 @@ namespace chessFormApplication
         public void DrawSquare(PaintEventArgs e, int x, int y)
         {
             Brush brush;
-            if ((x+y) % 2 == 0)
+            if ((x + y) % 2 == 0)
             {
                 brush = Brushes.Sienna;
             }
-                else
+            else
             {
                 brush = Brushes.White;
             }
@@ -46,15 +56,6 @@ namespace chessFormApplication
             xPanel = x * width;
             yPanel = pnl_board.Height - height * y;
             e.Graphics.FillRectangle(brush, xPanel, yPanel, width, height);
-        }
-
-        public Game Game { get; set; }
-
-        public Form1()
-        {
-            InitializeComponent();
-            Game = new Game();
-            Game.Board.setupStartPosition();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -129,10 +130,56 @@ namespace chessFormApplication
 
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
-            int width = pnl_board.Width/8;
-            int height = pnl_board.Height/8;
+            decimal width = pnl_board.Width/8;
+            decimal height = pnl_board.Height/8;
 
+            decimal x = e.X / width;
+            decimal i = Math.Floor(x);
+            decimal y = e.Y / height;
+            decimal j = 7 - Math.Floor(y);
 
+            Point clickedSquarePoint = new Point(Convert.ToInt32(i), Convert.ToInt32(j));
+            Piece stukje = Game.Board.Field[clickedSquarePoint.Y][clickedSquarePoint.X];
+            if (selectedPiece == null && stukje != null)
+            {
+                if (stukje.Color == Game.Board.ToMove)
+                {
+                    selectedPiece = stukje;
+                }
+                else
+                {
+                    MessageBox.Show("Dit is een stuk van de tegenstander, deze kan je niet selecteren.");
+                }
+            }
+            else
+            {
+                if (stukje != null && stukje.Color == Game.Board.ToMove)
+                {
+                    selectedPiece = stukje;
+                }
+                else
+                {
+                    if (Game.moveStukje(selectedPiece, clickedSquarePoint) == false)
+                    {
+                        MessageBox.Show("Ongeldige zet");
+                    }
+                    else
+                    {
+                        pnl_board.Invalidate();
+
+                        if (Game.Board.ToMove == Color.Black)
+                        {
+                            Game.Board.ToMove = Color.White;
+                        }
+                        else
+                        {
+                            Game.Board.ToMove = Color.Black;
+                        }
+
+                        selectedPiece = null;
+                    }
+                }
+            }
         }
     }
 
