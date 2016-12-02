@@ -13,10 +13,8 @@ namespace chessFormApplication
 {
     public partial class Form1 : Form
     {
-        public void DrawStukje(PaintEventArgs e, Color c, string black, string white, int i, int j)
+        public void DrawPiece(PaintEventArgs e, Color c, string white, string black, int i, int j)
         {
-            Brush darkSquare = Brushes.Sienna;
-            Brush lightSquare = Brushes.White;
             Font drawFont = new Font("Arial", 16);
             SolidBrush textBrush = new SolidBrush(System.Drawing.Color.Black);
             int width = pnl_board.Width / 8;
@@ -29,8 +27,21 @@ namespace chessFormApplication
                 case Color.Black:
                     e.Graphics.DrawString(black, drawFont, textBrush, width / 8 + j * width, 8 * height - (7 * height / 8 + i * height));
                     break;
-
             }
+        }
+        public void DrawSquare(PaintEventArgs e, int x, int y)
+        {
+            Brush brush;
+            if ((x+y) % 2 == 0)
+            {
+                brush = Brushes.Sienna;
+            }
+                else
+            {
+                brush = Brushes.White;
+            }
+            int xboard, yboard;
+            //width 
         }
 
         public Game Game { get; set; }
@@ -82,71 +93,32 @@ namespace chessFormApplication
                         //switch (Game.Board.Field[i][j].GetType())
                         if (Game.Board.Field[i][j].GetType() == typeof(Pawn))
                         {
-                            DrawStukje(e, pieceColor, "♟", "♙", i, j);
+                            DrawPiece(e, pieceColor, "♙", "♟", i, j);
                         }
                         else if (Game.Board.Field[i][j].GetType() == typeof(Rook))
                         {
-                            DrawStukje(e, pieceColor, "♖", "♜", i, j);
+                            DrawPiece(e, pieceColor, "♖", "♜", i, j);
                         }
                         else if (Game.Board.Field[i][j].GetType() == typeof(Knight))
                         {
-                            switch (pieceColor)
-                            {
-                                case Color.White:
-                                    e.Graphics.DrawString("♘", drawFont, textBrush, width / 8 + j * width, 8 * height - (7 * height / 8 + i * height));
-                                    break;
-                                case Color.Black:
-                                    e.Graphics.DrawString("♞", drawFont, textBrush, width / 8 + j * width, 8 * height - (7 * height / 8 + i * height));
-                                    break;
-
-                            }
+                            DrawPiece(e, pieceColor, "♘", "♞", i, j);
                         }
                         else if (Game.Board.Field[i][j].GetType() == typeof(Bishop))
                         {
-                            switch (pieceColor)
-                            {
-                                case Color.White:
-                                    e.Graphics.DrawString("♗", drawFont, textBrush, width / 8 + j * width, 8 * height - (7 * height / 8 + i * height));
-                                    break;
-                                case Color.Black:
-                                    e.Graphics.DrawString("♝", drawFont, textBrush, width / 8 + j * width, 8 * height - (7 * height / 8 + i * height));
-                                    break;
-
-                            }
+                            DrawPiece(e, pieceColor, "♗", "♝", i, j);
                         }
                         else if (Game.Board.Field[i][j].GetType() == typeof(Queen))
                         {
-                            switch (pieceColor)
-                            {
-                                case Color.White:
-                                    e.Graphics.DrawString("♕", drawFont, textBrush, width / 8 + j * width, 8 * height - (7 * height / 8 + i * height));
-                                    break;
-                                case Color.Black:
-                                    e.Graphics.DrawString("♛", drawFont, textBrush, width / 8 + j * width, 8 * height - (7 * height / 8 + i * height));
-                                    break;
-
-                            }
+                            DrawPiece(e, pieceColor, "♕", "♛", i, j);
                         }
                         else if (Game.Board.Field[i][j].GetType() == typeof(King))
                         {
-                            switch (pieceColor)
-                            {
-                                case Color.White:
-                                    e.Graphics.DrawString("♔", drawFont, textBrush, width / 8 + j * width, 8 * height - (7 * height / 8 + i * height));
-                                    break;
-                                case Color.Black:
-                                    e.Graphics.DrawString("♚", drawFont, textBrush, width / 8 + j * width, 8 * height - (7 * height / 8 + i * height));
-                                    break;
-
-                            }
+                            DrawPiece(e, pieceColor, "♔", "♚", i, j);
                         }
                     }
                 }
             }
         }
-
-        //e.Graphics.DrawRectangle(Pens.Black, 1, 1, 399, 399);
-
     }
 
 }
