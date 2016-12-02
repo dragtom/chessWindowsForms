@@ -38,12 +38,13 @@
             this.pnl_board.Size = new System.Drawing.Size(400, 400);
             this.pnl_board.TabIndex = 0;
             this.pnl_board.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_board_Paint);
+            this.pnl_board.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseClick);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(842, 555);
+            this.ClientSize = new System.Drawing.Size(792, 432);
             this.Controls.Add(this.pnl_board);
             this.Name = "Form1";
             this.Text = "Form1";

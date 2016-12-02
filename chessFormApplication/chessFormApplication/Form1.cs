@@ -119,6 +119,14 @@ namespace chessFormApplication
                 }
             }
         }
+
+        private void Form1_MouseClick(object sender, MouseEventArgs e)
+        {
+            int width = pnl_board.Width/8;
+            int height = pnl_board.Height/8;
+
+
+        }
     }
 
 }
