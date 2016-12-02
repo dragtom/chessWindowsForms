@@ -40,8 +40,12 @@ namespace chessFormApplication
             {
                 brush = Brushes.White;
             }
-            int xboard, yboard;
-            //width 
+            int xPanel, yPanel;
+            int width = pnl_board.Width / 8;
+            int height = pnl_board.Height / 8;
+            xPanel = x * width;
+            yPanel = pnl_board.Height - height * y;
+            e.Graphics.FillRectangle(brush, xPanel, yPanel, width, height);
         }
 
         public Game Game { get; set; }
@@ -70,15 +74,18 @@ namespace chessFormApplication
             SolidBrush textBrush = new SolidBrush(System.Drawing.Color.Black);
             int width = pnl_board.Width / 8;
             int height = pnl_board.Height / 8;
-            for (int i = width - 1; i <= pnl_board.Width - width; i += 2 * width)
+            for (int i = 0; i< 8; i++)
             {
-                for (int j = 0; j <= pnl_board.Height - height; j += 2 * height)
+                for (int j = 0; j <= 8; j++)
                 {
                     //MessageBox.Show(i + "," + j);
+                    /*
                     e.Graphics.FillRectangle(darkSquare, i, j, width, height);
                     e.Graphics.FillRectangle(lightSquare, i - width, j, width, height);
                     e.Graphics.FillRectangle(darkSquare, i - width, j + height, width, height);
                     e.Graphics.FillRectangle(lightSquare, i, j + height, width, height);
+                    */
+                    DrawSquare(e, i, j);
                 }
             }
 
