@@ -28,6 +28,7 @@ namespace chessFormApplication
                 {
                     Board.Field[move[1].Y][move[1].X] = Board.Field[move[0].Y][move[0].X];
                     Board.Field[move[0].Y][move[0].X] = null;
+                    Board.Field[move[1].Y][move[1].X].Location = new Point(move[1].X, move[1].Y);
                     return true;
                 }
             }

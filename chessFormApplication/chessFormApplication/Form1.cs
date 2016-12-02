@@ -145,6 +145,8 @@ namespace chessFormApplication
                 if (stukje.Color == Game.Board.ToMove)
                 {
                     selectedPiece = stukje;
+                    lblSelectedXValue.Text = selectedPiece.Location.X.ToString();
+                    lblSelectedYValue.Text = selectedPiece.Location.Y.ToString();
                 }
                 else
                 {
@@ -156,30 +158,45 @@ namespace chessFormApplication
                 if (stukje != null && stukje.Color == Game.Board.ToMove)
                 {
                     selectedPiece = stukje;
+                    lblSelectedXValue.Text = selectedPiece.Location.X.ToString();
+                    lblSelectedYValue.Text = selectedPiece.Location.Y.ToString();
                 }
                 else
                 {
-                    if (Game.moveStukje(selectedPiece, clickedSquarePoint) == false)
+                    if (selectedPiece != null)
                     {
-                        MessageBox.Show("Ongeldige zet");
-                    }
-                    else
-                    {
-                        pnl_board.Invalidate();
-
-                        if (Game.Board.ToMove == Color.Black)
+                        if (Game.moveStukje(selectedPiece, clickedSquarePoint) == false)
                         {
-                            Game.Board.ToMove = Color.White;
+                            MessageBox.Show("Ongeldige zet");
                         }
                         else
                         {
-                            Game.Board.ToMove = Color.Black;
-                        }
+                            pnl_board.Invalidate();
 
-                        selectedPiece = null;
+                            if (Game.Board.ToMove == Color.Black)
+                            {
+                                Game.Board.ToMove = Color.White;
+                            }
+                            else
+                            {
+                                Game.Board.ToMove = Color.Black;
+                            }
+
+                            selectedPiece = null;
+                        }
                     }
                 }
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
