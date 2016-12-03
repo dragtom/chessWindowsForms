@@ -21,15 +21,46 @@ namespace chessFormApplication
             InitializeComponent();
             Game = new Game();
             Game.Board.setupStartPosition();
+            updateUI();
         }
 
         private void updateUI()
         {
+            lbltoMove.Text = Game.Board.ToMove.ToString();
             if (selectedPiece != null)
             {
-                lbltoMove.Text = Game.Board.ToMove.ToString();
+                if (selectedPiece.GetType() == typeof(Pawn))
+                {
+                    lblselectedPiece.Text = "Pawn";
+                }
+                else if (selectedPiece.GetType() == typeof(Rook))
+                {
+                    lblselectedPiece.Text = "Rook";
+                }
+                else if (selectedPiece.GetType() == typeof(Knight))
+                {
+                    lblselectedPiece.Text = "Kight";
+                }
+                else if (selectedPiece.GetType() == typeof(Bishop))
+                {
+                    lblselectedPiece.Text = "Bishop";
+                }
+                else if (selectedPiece.GetType() == typeof(Queen))
+                {
+                    lblselectedPiece.Text = "Queen";
+                }
+                else if (selectedPiece.GetType() == typeof(King))
+                {
+                    lblselectedPiece.Text = "King";
+                }
                 lblSelectedXValue.Text = selectedPiece.Location.X.ToString();
                 lblSelectedYValue.Text = selectedPiece.Location.Y.ToString();
+            }
+            else
+            {
+                lblselectedPiece.Text = "null";
+                lblSelectedXValue.Text = "null";
+                lblSelectedYValue.Text = "null";
             }
         }
 
@@ -85,7 +116,7 @@ namespace chessFormApplication
             SolidBrush textBrush = new SolidBrush(System.Drawing.Color.Black);
             int width = pnl_board.Width / 8;
             int height = pnl_board.Height / 8;
-            for (int i = 0; i< 8; i++)
+            for (int i = 0; i < 8; i++)
             {
                 for (int j = 0; j <= 8; j++)
                 {
@@ -140,8 +171,8 @@ namespace chessFormApplication
 
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
-            decimal width = pnl_board.Width/8;
-            decimal height = pnl_board.Height/8;
+            decimal width = pnl_board.Width / 8;
+            decimal height = pnl_board.Height / 8;
 
             decimal x = e.X / width;
             decimal i = Math.Floor(x);
@@ -193,6 +224,7 @@ namespace chessFormApplication
                     }
                 }
             }
+            updateUI();
         }
 
         private void btAImove_Click(object sender, EventArgs e)
