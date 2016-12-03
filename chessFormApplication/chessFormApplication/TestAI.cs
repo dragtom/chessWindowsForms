@@ -1,4 +1,5 @@
-﻿using System;
+﻿using chessFormApplication.Pieces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,11 +13,11 @@ namespace chessFormApplication
         {
             throw new NotImplementedException();
         }
-        public int giveBoardScore(Board board)
+        public double giveBoardScore(Board board)
         {
-            int scoreWhite = 0;
-            int scoreBlack = 0;
-
+            double scoreWhite = 0;
+            double scoreBlack = 0;
+            
             if (board.ToMove == Color.White)
             {
                 return (scoreWhite - scoreBlack);
@@ -25,6 +26,22 @@ namespace chessFormApplication
             {
                 return (scoreBlack - scoreWhite);
             }
+        }
+        private double getScoreFromExistingPieces(Color color, Board board)
+        {
+            double totalScore = 0;
+            List<Piece> Pieces = board.GetPieces(color);
+            foreach (Piece piece in Pieces)
+            {
+                if (piece.GetType() == typeof(Pawn))
+                {
+                    totalScore += 1;
+                } else if (piece.GetType() == typeof(Knight))
+                {
+                    totalScore += 3;
+                }
+            }
+            return totalScore;
         }
     }
 }
