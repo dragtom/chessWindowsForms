@@ -60,7 +60,7 @@ namespace chessFormApplication
             Field[7][4] = new Knight(Color.Black);
             */
         }
-        public List<Piece> getPieces(Color color)
+        public List<Piece> GetPieces(Color color)
         {
             List<Piece> returnList = new List<Piece>();
             for (int i = 0; i < 8; i++)
@@ -80,22 +80,18 @@ namespace chessFormApplication
             return returnList;
         }
 
-        /*
-        public List<Point[]> getAllMoves(Color color)
+        
+        public List<Point[]> GetAllMoves(Color color)
         {
             List<Point[]> returnList = new List<Point[]>();
-            foreach (Piece piece in getPieces(color)) {
-                Point[] moveOfPiece 
+            foreach (Piece piece in GetPieces(color)) {
                 List<Point[]> pieceMovesArray = piece.MovesList(this);
-                foreach (Array moveAsArray in pieceMovesArray)
+                foreach (Point[] move in pieceMovesArray)
                 {
-                    foreach (Point p in moveAsArray)
-                    {
-
-                    }
+                    returnList.Add(move);
                 }
             }
+            return returnList;
         }
-        */
     }
 }
