@@ -60,7 +60,7 @@ namespace chessFormApplication
             Field[7][4] = new Knight(Color.Black);
             */
         }
-        public List<Piece> GtPieces(Color color)
+        public List<Piece> GetPieces(Color color)
         {
             List<Piece> returnList = new List<Piece>();
             for (int i = 0; i < 8; i++)
