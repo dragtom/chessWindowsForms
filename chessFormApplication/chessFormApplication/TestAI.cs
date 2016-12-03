@@ -12,5 +12,19 @@ namespace chessFormApplication
         {
             throw new NotImplementedException();
         }
+        public int giveBoardScore(Board board)
+        {
+            int scoreWhite = 0;
+            int scoreBlack = 0;
+
+            if (board.ToMove == Color.White)
+            {
+                return (scoreWhite - scoreBlack);
+            }
+            else
+            {
+                return (scoreBlack - scoreWhite);
+            }
+        }
     }
 }
