@@ -23,6 +23,16 @@ namespace chessFormApplication
             Game.Board.setupStartPosition();
         }
 
+        private void updateUI()
+        {
+            if (selectedPiece != null)
+            {
+                lbltoMove.Text = Game.Board.ToMove.ToString();
+                lblSelectedXValue.Text = selectedPiece.Location.X.ToString();
+                lblSelectedYValue.Text = selectedPiece.Location.Y.ToString();
+            }
+        }
+
         public void DrawPiece(PaintEventArgs e, Color c, string white, string black, int i, int j)
         {
             Font drawFont = new Font("Arial", 16);
@@ -145,8 +155,6 @@ namespace chessFormApplication
                 if (stukje.Color == Game.Board.ToMove)
                 {
                     selectedPiece = stukje;
-                    lblSelectedXValue.Text = selectedPiece.Location.X.ToString();
-                    lblSelectedYValue.Text = selectedPiece.Location.Y.ToString();
                 }
                 else
                 {
@@ -158,8 +166,6 @@ namespace chessFormApplication
                 if (stukje != null && stukje.Color == Game.Board.ToMove)
                 {
                     selectedPiece = stukje;
-                    lblSelectedXValue.Text = selectedPiece.Location.X.ToString();
-                    lblSelectedYValue.Text = selectedPiece.Location.Y.ToString();
                 }
                 else
                 {
@@ -189,14 +195,9 @@ namespace chessFormApplication
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void btAImove_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
+            throw new NotImplementedException();
         }
     }
 

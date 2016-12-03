@@ -86,7 +86,7 @@ namespace chessFormApplication
             List<Point[]> returnList = new List<Point[]>();
             foreach (Piece piece in getPieces(color)) {
                 Point[] moveOfPiece 
-                List<Array> pieceMovesArray = piece.MovesList(this);
+                List<Point[]> pieceMovesArray = piece.MovesList(this);
                 foreach (Array moveAsArray in pieceMovesArray)
                 {
                     foreach (Point p in moveAsArray)

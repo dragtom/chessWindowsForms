@@ -14,9 +14,9 @@ namespace chessFormApplication.Pieces
 
         }
 
-        public override List<Array> EmptySpaceMovesList(Board board)
+        public override List<Point[]> EmptySpaceMovesList(Board board)
         {
-            List<Array> possibleMovesList = new List<Array>();
+            List<Point[]> possibleMovesList = new List<Point[]>();
 
             if (this.Color == Color.Black)
             {
@@ -40,9 +40,9 @@ namespace chessFormApplication.Pieces
             return possibleMovesList;
         }
 
-        public override List<Array> TakeMovesList(Board board)
+        public override List<Point[]> TakeMovesList(Board board)
         {
-            List<Array> possibleMovesList = new List<Array>();
+            List<Point[]> possibleMovesList = new List<Point[]>();
 
             if (this.Color == Color.Black)
             {

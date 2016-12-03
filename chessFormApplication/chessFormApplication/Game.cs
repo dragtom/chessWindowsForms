@@ -21,7 +21,7 @@ namespace chessFormApplication
         
         public bool moveStukje(Piece piece, Point pointupdateLocation)
         {
-            List<Array> possibleMovesList = piece.MovesList(Board);
+            List<Point[]> possibleMovesList = piece.MovesList(Board);
             foreach (Point[] move in possibleMovesList)
             {
                 if (move[1] == pointupdateLocation)

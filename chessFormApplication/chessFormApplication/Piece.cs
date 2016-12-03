@@ -38,19 +38,19 @@ namespace chessFormApplication
             }
         }
 
-        public List<Array> MovesList(Board board)
+        public List<Point[]> MovesList(Board board)
         {
-            List<Array> returnList = new List<Array>();
-            List<Array> templist = new List<Array>();
+            List<Point[]> returnList = new List<Point[]>();
+            List<Point[]> templist = new List<Point[]>();
 
             templist = TakeMovesList(board);
-            foreach (Array a in templist)
+            foreach (Point[] a in templist)
             {
                 returnList.Add(a);
             }
 
             templist = EmptySpaceMovesList(board);
-            foreach (Array a in templist)
+            foreach (Point[] a in templist)
             {
                 returnList.Add(a);
             }
@@ -94,12 +94,12 @@ namespace chessFormApplication
             return null;
         }
 
-        public virtual List<Array> TakeMovesList(Board board)
+        public virtual List<Point[]> TakeMovesList(Board board)
         {
             throw new NotImplementedException();
         }
 
-        public virtual List<Array> EmptySpaceMovesList(Board board)
+        public virtual List<Point[]> EmptySpaceMovesList(Board board)
         {
             throw new NotImplementedException();
         }
