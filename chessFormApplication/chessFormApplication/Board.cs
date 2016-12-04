@@ -46,7 +46,7 @@ namespace chessFormApplication
             Field[7][5] = new Bishop(Color.Black, new Point(5, 7));
             Field[7][6] = new Knight(Color.Black, new Point(6, 7));
             Field[7][7] = new Rook(Color.Black, new Point(7, 7));
-            
+
         }
 
         public void setupExamplePosition()
@@ -65,7 +65,7 @@ namespace chessFormApplication
             List<Piece> returnList = new List<Piece>();
             for (int i = 0; i < 8; i++)
             {
-                for (int j = 0; j<8; j++)
+                for (int j = 0; j < 8; j++)
                 {
                     Piece selectedPiece = Field[i][j];
                     if (selectedPiece != null)
@@ -80,11 +80,12 @@ namespace chessFormApplication
             return returnList;
         }
 
-        
+
         public List<Point[]> GetAllMoves(Color color)
         {
             List<Point[]> returnList = new List<Point[]>();
-            foreach (Piece piece in GetPieces(color)) {
+            foreach (Piece piece in GetPieces(color))
+            {
                 List<Point[]> pieceMovesArray = piece.MovesList(this);
                 foreach (Point[] move in pieceMovesArray)
                 {
