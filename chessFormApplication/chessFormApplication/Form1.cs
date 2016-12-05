@@ -20,7 +20,8 @@ namespace chessFormApplication
         {
             InitializeComponent();
             Game = new Game();
-            Game.Board.setupStartPosition();
+            Game.Board.setupExamplePosition();
+            Game.AI = new TestAI();
             updateUI();
         }
 
@@ -229,7 +230,14 @@ namespace chessFormApplication
 
         private void btAImove_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Game.Board = Game.AI.getMove(Game.Board);
+            } catch (NullReferenceException)
+            {
+                MessageBox.Show("no legal moves left");
+            }
+            pnl_board.Invalidate();
         }
     }
 

@@ -11,8 +11,7 @@ namespace chessFormApplication
     public class Game
     {
         public Board Board { get; set; }
-        IPlayer playerWhite;
-        IPlayer playerBlack;
+        public IAI AI { get; set; }
 
         public Game()
         {

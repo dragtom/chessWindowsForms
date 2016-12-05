@@ -50,15 +50,15 @@ namespace chessFormApplication
         }
 
         public void setupExamplePosition()
-        {/*
+        {
             for (int i = 3; i < 6; i++)
             {
-                Field[1][i] = new Pawn(Color.White);
-                Field[6][i] = new Pawn(Color.Black);
+                Field[1][i] = new Pawn(Color.White, new Point(i, 1));
+                Field[6][i] = new Pawn(Color.Black, new Point (i, 6));
             }
-            Field[0][4] = new Knight(Color.White);
-            Field[7][4] = new Knight(Color.Black);
-            */
+            Field[0][4] = new Knight(Color.White, new Point(4, 0));
+            Field[7][4] = new Knight(Color.Black, new Point(4, 7));
+            
         }
         public List<Piece> GetPieces(Color color)
         {
